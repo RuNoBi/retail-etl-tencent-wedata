@@ -1,9 +1,36 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="27.2.0">
   <diagram name="Page-1" id="uetqCWpPhUKZOVqeqzab">
-    <mxGraphModel>
+    <mxGraphModel dx="1013" dy="678" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="HMK_np-aYuSxqNtqInTg-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HMK_np-aYuSxqNtqInTg-1" target="HMK_np-aYuSxqNtqInTg-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HMK_np-aYuSxqNtqInTg-1" value="TDSQL&lt;div&gt;&lt;font size=&quot;1&quot;&gt;Table:retail_raw_data&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;Type:Raw Transaction Data&lt;/font&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="320" y="20" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="HMK_np-aYuSxqNtqInTg-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HMK_np-aYuSxqNtqInTg-2" target="HMK_np-aYuSxqNtqInTg-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HMK_np-aYuSxqNtqInTg-2" value="&lt;b&gt;EXTRACT NODE (SQL)&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;SELECT * FROM retail.retail_raw_data;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="315" y="190" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="HMK_np-aYuSxqNtqInTg-4" value="&lt;b&gt;TCHOUSE&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Table:&lt;/font&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;retail_customer_summary&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Type:&lt;/font&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Aggregated summary&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="315" y="600" width="160" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="HMK_np-aYuSxqNtqInTg-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HMK_np-aYuSxqNtqInTg-6" target="HMK_np-aYuSxqNtqInTg-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HMK_np-aYuSxqNtqInTg-6" value="&lt;b&gt;TRANSFORM NODE (SQL)&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- Remove rows with NULLs or negative Quantity&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- Calculate `TotalAmount = Quantity * Price`&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- Create `retail_customer_summary` by grouping by `Customer_ID`&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="208.75" y="320" width="382.5" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="HMK_np-aYuSxqNtqInTg-7" value="&lt;b&gt;LOAD NODE (SQL)&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;- CREATE TABLE&amp;nbsp;retail_customer_summary&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;- INSERT INTO retail.retail_customer_summary&lt;/div&gt;&lt;div&gt;SELECT * FROM {{upstream_transform_node}};&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="252.5" y="460" width="295" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="HMK_np-aYuSxqNtqInTg-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.541;entryY=-0.017;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="HMK_np-aYuSxqNtqInTg-7" target="HMK_np-aYuSxqNtqInTg-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
