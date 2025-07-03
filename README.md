@@ -147,4 +147,8 @@ We can use this pipeline to:
 - Identify top-performing customers
 - Feed data into BI dashboards or customer segmentation model
 
+---
+Project by Puttaradol Pongpanich (CPAXTRA Intern) | July 2025  
+Mentored by Ankit Kushwaha | For learning purpose only
+
 
