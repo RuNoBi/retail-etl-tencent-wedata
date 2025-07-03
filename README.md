@@ -143,9 +143,8 @@ SELECT * FROM {{upstream_transform_node}};
 ## Insight Goals
 
 We can use this pipeline to:
-- Understand total spending per customer (for CRM)
+- Understand total spending per customer
 - Identify top-performing customers
-- Monitor top-selling products
 - Feed data into BI dashboards or customer segmentation model
 
 
