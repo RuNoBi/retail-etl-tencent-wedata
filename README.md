@@ -133,5 +133,19 @@ SELECT * FROM {{upstream_transform_node}};
 
 ---
 
+## Example Output:
+
+| Customer_ID | InvoiceCount | TotalQuantity | TotalAmount |
+|-------------|--------------|----------------|--------------|
+| 12636       | 3            | 80             | 189.55       |
+| 17519       | 6            | 140            | 255.30       |
+
+## Insight Goals
+
+We can use this pipeline to:
+- Understand total spending per customer (for CRM)
+- Identify top-performing customers
+- Monitor top-selling products
+- Feed data into BI dashboards or customer segmentation model
 
 
